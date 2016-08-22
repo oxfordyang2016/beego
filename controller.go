@@ -55,9 +55,9 @@ type ControllerComments struct {
 
 // Controller defines some basic http request handler operations, such as
 // http context, template and view, session and xsrf.
-type Controller struct {
+type Controller struct { //eg=>beego.Controller //in beego dir ,some file contain Controllers
 	// context data
-	Ctx  *context.Context
+	Ctx  *context.Context //"github.com/astaxie/beego/context"
 	Data map[interface{}]interface{}
 
 	// route controller info
