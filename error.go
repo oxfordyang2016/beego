@@ -14,7 +14,7 @@
 
 package beego
 
-// i have some ideal
+// i have some ideal,why
 import (
 	"fmt"
 	"html/template"

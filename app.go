@@ -360,6 +360,31 @@ func Handler(rootpath string, h http.Handler, options ...interface{}) *App {
 // The pos means action constant including
 // beego.BeforeStatic, beego.BeforeRouter, beego.BeforeExec, beego.AfterExec and beego.FinishRouter.
 // The bool params is for setting the returnOnOutput value (false allows multiple filters to execute)
+//=======example=========
+/**
+func init() {
+
+	beego.Router("/*", &controllers.MainController{})
+	beego.Router("/login", &controllers.MainController{})
+	beego.InsertFilter("/*", beego.FinishRouter, FilterUser, false)
+}
+
+var FilterUser = func(ctx *context.Context) {
+	if strings.HasPrefix(ctx.Input.URL(), "/login") {
+		fmt.Println("++++++++++++++++++++++++++++++++++++++++++++")
+		return
+	}
+	fmt.Println("what isfyck")
+	_, ok := ctx.Input.Session("uid").(int)
+	if !ok {
+		ctx.Redirect(302, "/login")
+	}
+}
+**/
+
+//what is fuck
+//about params,when using afterRouter,afterfinish,you need false====
+
 func InsertFilter(pattern string, pos int, filter FilterFunc, params ...bool) *App {
 	BeeApp.Handlers.InsertFilter(pattern, pos, filter, params...)
 	return BeeApp
