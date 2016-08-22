@@ -14,6 +14,7 @@
 
 package beego
 
+// i have some ideal
 import (
 	"fmt"
 	"html/template"
