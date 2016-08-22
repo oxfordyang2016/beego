@@ -57,7 +57,21 @@ type ControllerComments struct {
 // http context, template and view, session and xsrf.
 type Controller struct { //eg=>beego.Controller //in beego dir ,some file contain Controllers
 	// context data
-	Ctx  *context.Context //"github.com/astaxie/beego/context"
+	Ctx *context.Context //"github.com/astaxie/beego/context"
+	//you can write  data to the connect of request
+	/*eg
+		func (c *MainController) Get() {
+		// c.Data["Website"] = "beego.me"
+		// c.Data["Email"] = "astaxie@gmail.com"
+		// c.TplName = "index.tpl"
+		// fmt.Println(c.Data["Email"])
+		// c.Data["Json"]="======================================>"
+		// fmt.Println(c.Data["Json"])
+
+		c.Ctx.WriteString("hello,world")//return some data
+	}
+
+	*/
 	Data map[interface{}]interface{}
 
 	// route controller info
